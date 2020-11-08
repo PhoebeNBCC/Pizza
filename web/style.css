@@ -1,0 +1,125 @@
+* {
+    margin: 10px;
+    padding: 0px;
+}
+
+header,
+section,
+footer,
+aside,
+main,
+nav,
+article,
+hgroup,
+ul,
+image {
+    display: block;
+}
+
+body {
+    background-color: rgb(252, 230, 206);
+    color: #003366;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+#wrapper {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #F0F0F0;
+    min-width: 1000px;
+    max-width: 1200px;
+}
+
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.center-align {
+    padding: 10px;
+    text-align: center;
+    color: red;
+}
+
+.logo {
+    display: block;
+    margin-left: 10px;
+    height: 60px;
+    width: auto;
+}
+
+.pizzaImg {
+    display: inline;
+    position: relative;
+    border: 2px solid red;
+    overflow: hidden;
+    height: auto;
+    width: 45%;
+    float: right;
+}
+
+.bannericons {
+    height: 40px;
+}
+
+header {
+    color: #F0F0F0;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+header h1 {
+    line-height: 250%;
+    text-indent: 1em;
+    margin-bottom: 0;
+    background-image: url("background.jpeg");
+    /*https://img.heypik.com/background/20180814/heypik-business-blue-banner_26313590.jpg?x-oss-process=image/resize,m_fixed,w_400/crop,w_400,h_630*/
+}
+
+nav {
+    font-weight: bold;
+    font-size: 120%;
+    text-align: center;
+    background-color: rgb(139, 86, 139);
+    padding: 30px;
+    display: block;
+    line-height: 150%;
+    height: 60px;
+}
+
+.menu {
+    margin-top: 20px;
+    padding: 5px;
+    color: #6666f7;
+}
+
+nav a:visited {
+    color: #0b0561;
+}
+
+nav a:hover {
+    color: #6666f7;
+}
+
+button {
+    float: center;
+    color: purple;
+    font-size: 150%;
+}
+
+label {
+    text-align: right;
+    padding-right: 20px;
+    display: inline-block;
+    min-width: 150px;
+}
+
+.pizza {
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
+    background-color: #ce0000;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 2px solid white
+}

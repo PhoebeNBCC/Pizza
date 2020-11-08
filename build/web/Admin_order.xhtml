@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+        <title>Pizza</title>
+        <link href="bootstrap.min.css" rel="stylesheet"></link>
+        <link href="style.css" rel="stylesheet" ></link>
+        <link rel="icon" href="images/favicon.ico"></link>
+    </h:head>
+    <h:body>
+                <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <a class="navbar-brand" href="#"><img src="images/logo.png" class="logo"></img></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link active menu" href="index.jsp">     
+                        Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu" href="Admin_order.xhtml">
+                        Modify Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu" href="Admin_topping.xhtml">
+                        Modify Toppings</a>
+                </li>
+                <!--
+                <li class="nav-item">
+                    <a class="nav-link menu" href="Login.xhtml">
+                        Login</a>
+                </li>
+                -->
+
+
+
+            </ul>
+
+        </nav>
+        <br></br><br></br><br></br><br></br>
+        <h:form>
+        <fieldset>
+            <legend>Pending Orders</legend>
+            <h:panelGrid columns="6">
+                <h:outputLabel value="Order Id"/>
+                <h:outputLabel value="Total Price"/>
+                <h:outputLabel value="Delivery Date Time"/>
+                <h:outputLabel value="Placed Date Time"/>
+                <h:outputLabel value="Customer ID"/>
+                <h:outputLabel value="Order status"/>
+                <c:forEach var="order" items="#{orderBackingBean.FetchPendingOrders()}">
+                    <h:outputLabel value="#{order.orderId}"/>
+                    <h:outputLabel value="#{order.totalPrice}"/>
+                    <h:outputLabel value="#{order.deliveryDateTime}"/>
+                    <h:outputLabel value="#{order.placedDateTime}"/>
+                    <h:outputLabel value="#{order.customerId}"/>
+                    <h:commandButton id="toFilled" immediate="true" value="#{order.orderStatus}" >
+                    <f:ajax event="click" listener="#{orderBackingBean.updateOrderStatus(order.orderId)}"  render="@form"/>
+                    </h:commandButton>        
+                </c:forEach>
+            </h:panelGrid>
+        </fieldset>
+        <fieldset>
+            <legend>Filled Orders</legend>
+            <h:panelGrid columns="6">
+                <h:outputLabel value="Order Id"/>
+                <h:outputLabel value="Total Price"/>
+                <h:outputLabel value="Delivery Date Time"/>
+                <h:outputLabel value="Placed Date Time"/>
+                <h:outputLabel value="Customer ID"/>
+                <h:outputLabel value="Order status"/>
+                <c:forEach var="order" items="#{orderBackingBean.FetchFilledOrders()}">
+                    <h:outputLabel value="#{order.orderId}"/>
+                    <h:outputLabel value="#{order.totalPrice}"/>
+                    <h:outputLabel value="#{order.deliveryDateTime}"/>
+                    <h:outputLabel value="#{order.placedDateTime}"/>
+                    <h:outputLabel value="#{order.customerId}"/>
+                    <h:outputLabel value="#{order.orderStatus}"/>
+                </c:forEach>
+            </h:panelGrid>
+        </fieldset>
+        </h:form>
+        
+    </h:body>
+</html>
+
